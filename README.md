@@ -1,7 +1,7 @@
 # README
 
 DESCRIBE DATASETS
-I am using a dataset that a friend provided. It contains an inventory of cards. I will be using the 
+I am using a dataset that a friend provided. It contains an inventory of cards. I will be using the product, sku, title, image, type, price, sale price, inventory, and category. The csv dataset will be used for both the product and category tables. The Product and Category databases will be connected as a one-to-many relationship; one category can have many products.
 
 
 This README would normally document whatever steps are necessary to get the
