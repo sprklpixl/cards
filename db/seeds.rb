@@ -10,10 +10,15 @@ csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
 categories = {}
 
 csv.each do |row|
-  category_name = row['CATEGORY']
+  category_name = row['CATEGORIES']
 
   # Find or create the category
   category = categories[category_name] ||= Category.find_or_create_by(name: category_name)
+
+  unless category.persisted?
+    puts "Failed to save category: #{category.errors.full_messages.join(', ')}"
+    next
+  end
 
   # Extracting integer part from SKU column
   sku_text = row['SKU']
@@ -29,8 +34,12 @@ csv.each do |row|
   p.price = row['PRICE']
   p.sale_price = row['SALE PRICE']
   p.inventory = row['INVENTORY'].to_i # Assuming INVENTORY column contains only integers
-  p.save
-  puts "#{p.product_id} saved"
+
+  if p.save
+    puts "#{p.product_id} saved"
+  else
+    puts "Failed to save product: #{p.errors.full_messages.join(', ')}"
+  end
 end
 
 puts "There are now #{Product.count} rows in the products table."
