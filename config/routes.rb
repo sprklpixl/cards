@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  # get 'products/index'
+  # get 'products/show'
   # Define routes for the Home and About pages
   get 'home', to: 'pages#home'
   get 'about', to: 'pages#about'
+  #get 'index', to: 'pages#index' # Add this line for the index page
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -12,6 +15,6 @@ Rails.application.routes.draw do
   root "pages#home"
 
   # Resources for Products and Categories
-  resources :products, only: [:index]
+  resources :products, only: [:index, :show]
   resources :categories, only: [:index]
 end

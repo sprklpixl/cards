@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
   def home
-  end
-
-  def about
+    @products = Product.all
   end
 end
