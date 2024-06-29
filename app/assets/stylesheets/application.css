@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+ .erd {
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px;
+    width: 50%;
+}
+
+nav {
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+.menu {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    display: flex; /* Display items inline */
+    justify-content: flex-start; /* Align items to the start */
+  }
+  
+  .menu li {
+    margin-right: 20px; /* Space between menu items */
+  }
+  
+  .menu a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Default link color */
+    font-weight: bold; /* Bold text */
+  }
+  
+  .menu a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  

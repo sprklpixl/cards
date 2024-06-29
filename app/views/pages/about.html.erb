@@ -4,20 +4,5 @@ I am using a dataset that a friend provided. It contains an inventory of cards. 
 
 
 <h2>Database ERD</h2>
-+------------+         +-------------+
-|  Category  |         |   Product   |
-+------------+         +-------------+
-| id         |  <----- | id          |
-| name       |  1    * | product_id  |
-| created_at |         | title       |
-| updated_at |         | image       |
-+------------+         | category_id |
-                       | type        |
-                       | price       |
-                       | sale_price  |
-                       | inventory   |
-                       | created_at  |
-                       | updated_at  |
-                       +-------------+
-
+<%= render 'shared/erd' %>
 
