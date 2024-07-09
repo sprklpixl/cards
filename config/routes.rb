@@ -12,9 +12,21 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "pages#home"
+  # root "pages#home"
 
   # Resources for Products and Categories
   resources :products, only: [:index, :show]
   resources :categories, only: [:index]
+
+  # Adding Search with dropdown for categories
+  resources :products do
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :categories, only: [:index, :show]
+
+  root 'pages#home'
+  get 'about', to: 'pages#about'
 end
