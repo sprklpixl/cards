@@ -5,6 +5,13 @@ class ProductsController < ApplicationController
     @categories = Category.all
   end
 
+  def show
+    @product = Product.find_by(id: params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Product not found."
+    redirect_to products_path
+  end
+
   def search
     @categories = Category.all
     @products = Product.all
@@ -20,12 +27,5 @@ class ProductsController < ApplicationController
     @products = @products.page(params[:page]).per(10)
 
     render :index
-  end
-
-  def show
-    @product = Product.find_by(id: params[:id])
-  rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "Product not found."
-    redirect_to products_path
   end
 end
